@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html en="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+
+<header th:replace="~{fragments :: head}"></header>
+
+<form method="post" th:action="@{/updatePurse}">
+    <th:block th:each="purse : ${purseList}">
+        <div class="form-check">
+            <label>
+                <input type="radio" name="selectedId" th:value="${purse.id}" class="form-check-input">
+            </label>
+            <label>
+                <span th:text="${purse.name}"></span>
+            </label>
+        </div>
+    </th:block>
+
+    <div class="form-group mb-3">
+        <label>Name
+            <input type="text" name="name" class="form-control">
+        </label>
+    </div>
+    <div class="form-group mb-3">
+        <label>Brand
+            <input type="text" name="brand" class="form-control">
+        </label>
+    </div>
+    <div class="form-group mb-3">
+        <label>Description
+            <input type="text" name="description" class="form-control">
+        </label>
+    </div>
+    <div class="form-group mb-3">
+        <label>Price
+            <input type="text" name="price" class="form-control">
+        </label>
+    </div>
+    <input type="submit" value="Update" class="btn btn-primary">
+</form>
+
+</body>
+</html>

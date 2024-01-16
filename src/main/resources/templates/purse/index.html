@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html en="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+
+<form method="post" action="/allPurses">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col">
+                <h2>Purses</h2>
+                <p th:unless="${purses} and ${purses.getAllPurses().size()}">No purses!</p>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Brand</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:block th:each="purse : ${purses.getAllPurses()}">
+                        <td th:text="${purse.id}"></td>
+                        <td th:text="${purse.name}"></td>
+                        <td th:text="${purse.brand}"></td>
+                        <td th:text="${purse.description}"></td>
+                        <td th:text="${purse.price}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</form>
+
+</body>
+</html>

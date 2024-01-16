@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html en="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+
+<header th:replace="~{fragments :: head}"></header>
+
+<form method="post" th:action="@{createPurse}">
+    <input type="hidden" th:field="${purse.id}" />
+
+    <div class="form-group mb-3">
+        <label>Name
+            <input th:field="${purse.name}" class="form-control">
+        </label>
+        <p class="error" th:errors="${purse.name}"></p>
+    </div>
+    <div class="form-group mb-3">
+        <label>Brand
+            <input th:field="${purse.brand}" class="form-control">
+        </label>
+        <p class="error" th:errors="${purse.brand}"></p>
+    </div>
+    <div class="form-group mb-3">
+        <label>Description
+            <input th:field="${purse.description}" class="form-control">
+        </label>
+        <p class="error" th:errors="${purse.description}"></p>
+    </div>
+    <div class="form-group mb-3">
+        <label>Price
+            <input th:field="${purse.price}" class="form-control">
+        </label>
+        <p class="error" th:errors="${purse.price}"></p>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create Purse" class="btn btn-success">
+    </div>
+</form>
+
+</body>
+</html>
